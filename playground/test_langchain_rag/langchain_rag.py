@@ -303,7 +303,8 @@ rag_chain = (
 )
 
 # invoke(): 执行链，传入输入，获取最终输出
-query = "What is Task Decomposition?"
+query = "What is Task Decomposition?请用中文回答！"
+# query = "你认识王红博吗？"
 response = rag_chain.invoke(query)
 print(f"\n问题：{query}")
 print(f"回答：\n{response}")
