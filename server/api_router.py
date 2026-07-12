@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# FastAPI 教程地址：https://fastapi.tiangolo.com/tutorial/first-steps/
+
+from fastapi import FastAPI
+from server.chat.chat import chat
+import uvicorn
+
+
+app = FastAPI(
+    description= "iDocBot Chat Web APT Server"
+)
+
+# 使用路由函数的方式定义，在动态添加路由或在运行时修改路由配置时更为灵活。
+app.post(
+    "/api/chat",
+    tags=["Chat"],
+    summary="大模型对话交互接口",
+    )(chat)
+
+if __name__ == '__main__':
+
+    uvicorn.run(app, host='0.0.0.0', port=8000)
