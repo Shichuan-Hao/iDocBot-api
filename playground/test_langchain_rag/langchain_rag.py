@@ -30,7 +30,7 @@ from langchain_chroma import Chroma
 from langchain_community.chat_models import ChatZhipuAI
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
+from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langsmith import Client
 from zhipuai import ZhipuAI
@@ -280,12 +280,16 @@ prompt = langsmith_client.pull_prompt(
 
 rag_chain = (
     # 第一部分：准备输入字典 {"context": ..., "question": ...}
-    #   retriever | format_docs 的意思是：
+    #   retriever | RunnableLambda(format_docs) 的意思是：
     #     用 retriever 检索到相关文档 → 用 format_docs 拼接成字符串
+    #   为什么要用 RunnableLambda 包装？
+    #     format_docs 是一个普通 Python 函数，IDE 静态类型检查会警告类型不匹配；
+    #     RunnableLambda 是 LangChain 提供的"函数转 Runnable"包装器，
+    #     既能消除 IDE 警告，又能和 LCEL 管道写法完美融合。
     #   RunnablePassthrough() 的意思是：
     #     原样透传用户输入的 query 字符串，不做任何处理
     #   最终结果是一个字典，正好匹配 prompt 模板的两个占位符
-    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    {"context": retriever | RunnableLambda(format_docs), "question": RunnablePassthrough()}
 
     # | prompt: 将字典填入 prompt 模板，生成完整的提示词文本
     | prompt
