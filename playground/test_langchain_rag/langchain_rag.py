@@ -24,6 +24,9 @@ RAG 流程（参考流程图）:
 ============================================================
 """
 
+import os
+from pathlib import Path
+
 import bs4
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
@@ -43,7 +46,8 @@ from zhipuai import ZhipuAI
 # 从项目根目录下的 .env 文件中读取 API Key 等环境变量
 # .env 文件内容示例：
 #   ZHIPUAI_API_KEY=你的智谱API密钥
-load_dotenv()
+env_path = Path(__file__).resolve().parent.parent.parent / '.env'
+load_dotenv(env_path, override=True)
 
 
 # ========================= 辅助工具 =========================

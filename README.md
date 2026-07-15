@@ -29,6 +29,10 @@ fufan-chat项目的后端服务，负责处理业务逻辑、数据存储和API�
     cd fufan-chat-api
     pip install -r requirements.txt
     ```
+    > 如果安装速度慢，可使用清华镜像源：
+    > ```bash
+    > pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+    > ```
 3. 启动后端服务：
     ```bash
     python server/api_router.py
