@@ -4,7 +4,7 @@
 # FastAPI 教程地址：https://fastapi.tiangolo.com/tutorial/first-steps/
 
 from fastapi import FastAPI
-from server.chat.chat import chat
+from chat.chat import chat
 import uvicorn
 
 

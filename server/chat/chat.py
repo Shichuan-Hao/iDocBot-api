@@ -3,29 +3,30 @@
 
 
 from fastapi import Body, HTTPException
-from typing import List, Union, Optional
+from typing import Optional
 
-# 使用LangChain调用ChatGLM3-6B的依赖包
-from langchain.chains.llm import LLMChain
-from langchain_community.llms.chatglm3 import ChatGLM3
-from langchain_core.messages import AIMessage
+# 使用 LangChain + OpenAI 兼容接口调用 Ollama 部署的大模型
+from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 
 # 日志包
 from loguru import logger
 
 
+# Ollama 服务地址（OpenAI 兼容接口）
+OLLAMA_BASE_URL = "http://192.168.1.9:11434/v1"
+
+
 def chat(query: str = Body("", description="用户的输入"),
-         # model_name: str = Body("chatglm3-6b", description="基座模型的名称"),
-         model_name: str = Body("glm4-9b-chat", description="基座模型的名称"),
+         model_name: str = Body("glm4:9b", description="基座模型的名称"),
          temperature: float = Body(0.8, description="大模型参数：采样温度", ge=0.0, le=2.0),
-         max_tokens: Optional[int] = Body(None, description="大模型参数：最大输入Token限制"),
+         max_tokens: Optional[int] = Body(4096, description="大模型参数：最大输出Token限制"),
          ):
     """
     :param query: 用户输入的问题
-    :param model_name: 使用哪个大模型作为后端服务
+    :param model_name: 使用哪个大模型作为后端服务（Ollama 模型名，如 glm4:9b）
     :param temperature: 采样温度
-    :param max_tokens: 最大输入Token限制
+    :param max_tokens: 最大输出Token限制
     :return:  大模型的回复结果
     """
 
@@ -34,32 +35,28 @@ def chat(query: str = Body("", description="用户的输入"),
     logger.info("Temperature: {}", temperature)
     logger.info("Max tokens: {}", max_tokens)
 
-    # 使用LangChain调用glm4-9b-chat 或者 ChatGLM3-6B服务
     try:
-        # 使用LangChain调用ChatGLM3-6B服务
         template = """{query}"""
         prompt = PromptTemplate.from_template(template)
 
-        endpoint_url = "http://192.168.110.131:9091/v1/chat/completions"
-
-        llm = ChatGLM3(
-            endpoint_url=endpoint_url,
-            model_name=model_name,
+        # 通过 OpenAI 兼容接口调用 Ollama 部署的模型
+        llm = ChatOpenAI(
+            base_url=OLLAMA_BASE_URL,
+            model=model_name,
             temperature=temperature,
             max_tokens=max_tokens,
+            api_key="ollama",  # Ollama 不需要真实的 API Key，但 ChatOpenAI 要求此参数
         )
 
         llm_chain = prompt | llm
         response = llm_chain.invoke(query)
 
-        if response is None:
+        if response is None or response.content is None:
             raise ValueError("Received null response from LLM")
 
-        return {"LLM Response": response}
+        return {"LLM Response": response.content}
 
     except ValueError as ve:
-        # 捕获值错误并返回400响应
         raise HTTPException(status_code=400, detail=str(ve))
     except Exception as e:
-        # 捕获所有其他异常并返回500响应
         raise HTTPException(status_code=500, detail="Internal Server Error: " + str(e))
