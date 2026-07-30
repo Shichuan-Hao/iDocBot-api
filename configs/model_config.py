@@ -1,55 +1,53 @@
+from configs.env_config import get_str, get_list
 
-MODEL_ROOT_PATH = ""
 
 TEMPERATURE = 0.8
 
-# LLM_MODELS = ["zhipu-api"]
+# ---------- 当前启用的模型（从 .env 读取） ----------
+LLM_MODELS = get_list("LLM_MODELS", ["qwen2.5:7b"])
 
-LLM_MODELS = ["chatglm3-6b", "zhipu-api"]
-# LLM_MODELS = ["chatglm3-6b"]
+# ---------- 本地模型权重路径（此处暂时保留空壳，便于迁移） ----------
+MODEL_ROOT_PATH = ""
+
 MODEL_PATH = {
-    # 这里定义 本机服务器上存储的大模型权重存储路径
     "local_model": {
-        "chatglm3-6b": "/home/00_rag/model/ZhipuAI/chatglm3-6b",
-
-        # 可扩展其他的开源大模型
-
+        # 示例： "chatglm3-6b": "/home/00_rag/model/ZhipuAI/chatglm3-6b",
     },
-    
-    # 这里定义 本机服务器上存储的Embedding模型权重存储路径
     "embed_model": {
-        "bge-large-zh-v1.5": "/home/00_rag/model/AI-ModelScope/bge-large-zh-v1___5",
-
-        # 可扩展其他的Embedding模型
+        # 示例： "bge-large-zh-v1.5": "/home/00_rag/model/AI-ModelScope/bge-large-zh-v1___5",
     },
 }
 
+# ---------- Ollama 模型的自动配置（从 .env 读取） ----------
+# 遍历 OLLAMA_MODELS 列表，自动生成 ONLINE_LLM_MODEL 条目
+_ollama_models = get_list("OLLAMA_MODELS", ["qwen2.5:7b"])
+_ollama_api_base = get_str("OLLAMA_API_BASE", "http://192.168.1.9:11434/v1")
 
 ONLINE_LLM_MODEL = {
-
-    # 智谱清言的在线API服务
+    # ---- 智谱清言（可选） ----
     "zhipu-api": {
-        "api_key": "",
+        "api_key": get_str("ZHIPU_API_KEY"),
         "version": "glm-4",
         "provider": "ChatGLMWorker",
     },
-
-    # OpenAI GPT模型的在线服务
+    # ---- OpenAI（可选） ----
     "openai-api": {
         "model_name": "gpt-4",
-        "api_base_url": "https://api.openai.com/v1",
-        "api_key": "",
+        "api_base_url": get_str("OPENAI_API_BASE", "https://api.openai.com/v1"),
+        "api_key": get_str("OPENAI_API_KEY"),
         "openai_proxy": "",
     },
-
-    # 可扩展其他的模型在线模型
-    
 }
 
+# 自动为每个 Ollama 模型生成配置
+for _model_name in _ollama_models:
+    ONLINE_LLM_MODEL[_model_name] = {
+        "api_key": "ollama",
+        "version": _model_name,
+        "provider": "OllamaWorker",
+        "api_base_url": _ollama_api_base,
+    }
 
-
-# 选用的 Embedding 名称
-EMBEDDING_MODEL = "bge-large-zh-v1.5"
-
-# Embedding 模型运行设备。设为 "auto" 会自动检测(会有警告)，也可手动设定为 "cuda","mps","cpu","xpu" 其中之一。
+# ---------- Embedding 模型 ----------
+EMBEDDING_MODEL = get_str("EMBEDDING_MODEL", "bge-m3")
 EMBEDDING_DEVICE = "auto"

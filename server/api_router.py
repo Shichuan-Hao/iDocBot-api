@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+from pathlib import Path
 from fastapi.staticfiles import StaticFiles
 from typing import List
 
-from typing import Union
 from fastapi import FastAPI
 from server.chat.chat import chat
 import uvicorn
 import argparse
 from fastapi.middleware.cors import CORSMiddleware
+
+# 项目根目录（取 server/api_router.py 的上级目录）
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+STATIC_DIR = PROJECT_ROOT / "static" / "dist"
 
 
 def create_app(run_mode: str = None):
@@ -30,8 +34,25 @@ def create_app(run_mode: str = None):
     # 挂载路由
     mount_app_routes(app)
 
-    # 挂载 Vue 构建的前端静态文件夹
-    app.mount("/", StaticFiles(directory="static/dist"), name="static")
+    # 挂载前端静态文件到根路径
+    # static/dist/ 目录结构：
+    #   ├── index.html            ← 访问 /
+    #   ├── app-loading.css       ← 访问 /app-loading.css
+    #   ├── favicon.png           ← 访问 /favicon.png
+    #   └── static/               ← 访问 /static/...
+    #       ├── index-xxx.js
+    #       └── ...
+    if STATIC_DIR.exists():
+        app.mount(
+            "/",
+            StaticFiles(directory=str(STATIC_DIR), html=True),
+            name="static",
+        )
+    else:
+        @app.get("/", include_in_schema=False)
+        async def serve_index():
+            return {"detail": f"static directory not found: {STATIC_DIR}"}
+
     return app
 
 
@@ -75,6 +96,10 @@ def mount_app_routes(app: FastAPI):
              tags=["Messages"],
              summary="获取指定会话的消息列表",
              )(get_conversation_messages)
+
+    # 本地 Mock 登录接口（替代 mengxuegu mock 登录）
+    from server.api.mock_auth import router as mock_auth_router
+    app.include_router(mock_auth_router)
 
 
 

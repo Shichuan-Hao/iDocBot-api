@@ -48,6 +48,7 @@ fufan-chat项目的后端服务，负责处理业务逻辑、数据存储和API�
     git clone --branch v3.0.0 https://github.com/fufankeji/fufan-chat-api.git
     cd fufan-chat-api
     pip install -r requirements.txt
+    pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
     ```
 2. 本地部署Mysql服务并启动
 3. 初始化关系型数据库表

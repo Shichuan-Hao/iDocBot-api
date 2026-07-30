@@ -2,9 +2,9 @@ import os
 
 # 更新以下字段为你本地数据库的实际用户名、密码和数据库名
 username = 'root'
-hostname = '192.168.110.131'
-database_name = 'fufanapi'
-password = "snowball950123"
+hostname = '192.168.1.9'
+database_name = 'i_doc_bot'
+password = "123456"
 
 SQLALCHEMY_DATABASE_URI = f"mysql+asyncmy://{username}:{password}@{hostname}/{database_name}?charset=utf8mb4"
 

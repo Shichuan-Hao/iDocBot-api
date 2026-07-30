@@ -1,0 +1,4 @@
+2026-07-30 09:03:35 | INFO | model_worker | Register to controller
+2026-07-30 09:04:20 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 07779cdc. 
+2026-07-30 09:05:05 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 07779cdc. 
+2026-07-30 09:05:50 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 07779cdc. 

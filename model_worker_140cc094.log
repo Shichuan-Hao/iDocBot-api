@@ -1,0 +1,13 @@
+2026-07-30 09:11:19 | INFO | model_worker | Register to controller
+2026-07-30 09:12:04 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:12:49 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:13:34 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:14:19 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:15:04 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:15:49 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:16:34 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:17:19 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:18:04 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:18:49 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:19:34 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
+2026-07-30 09:20:19 | INFO | model_worker | Send heart beat. Models: ['glm4:9b']. Semaphore: Semaphore(value=5, locked=False). call_ct: 0. worker_id: 140cc094. 
