@@ -1,6 +1,6 @@
 <div align="center">
-  <img alt="FuFan Chat Logo" width="120" height="120" src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/20240823192944.jpg">
-  <h1>FuFan Chat Api</h1>
+  <img alt="iDocBot Logo" width="120" height="120" src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/20240823192944.jpg">
+  <h1>iDocBot Api</h1>
   <span>中文 | <a href="./README.md">English</a></span>
 </div>
 
@@ -8,14 +8,14 @@
 
 ## ⚡ 项目简介
 
-Fufan-chat-api 是一个基于大模型技术开发的本地知识库智能问答系统。本系统实现了目前大模型应用落地的五个核心场景：大模型通用领域知识问答、本地私有知识库问答、实时联网搜索问答、AI Agents 问答以及大模型推荐系统。此外，系统内置了完整的RAG评估方案和流程，同时支持Docker容器化部署，提供非常灵活和高效的应用部署方案。
+iDocBot 是一个基于大模型技术开发的本地知识库智能问答系统。本系统实现了目前大模型应用落地的五个核心场景：大模型通用领域知识问答、本地私有知识库问答、实时联网搜索问答、AI Agents 问答以及大模型推荐系统。此外，系统内置了完整的RAG评估方案和流程，同时支持Docker容器化部署，提供非常灵活和高效的应用部署方案。
 
   <div align="center">
   <img src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/fufan-logo.jpg" width="1200"/>
   </div>
 
 ### 技术架构
-本项目是在👉[LangChain-chatchat v0.2](https://github.com/chatchat-space/Langchain-Chatchat) 版本的基础上进行的二次开发，优化了原有的架构，使用了前后端分离的设计方案。后端全部使用Python开发语言，前端则采用了现代的Vue3框架。 该项目对接的前端开源仓库👉 [fufan-chat-web](https://github.com/fufankeji/fufan-chat-web) 
+本项目是在👉[LangChain-chatchat v0.2](https://github.com/chatchat-space/Langchain-Chatchat) 版本的基础上进行的二次开发，优化了原有的架构，使用了前后端分离的设计方案。后端全部使用Python开发语言，前端则采用了现代的Vue3框架。 该项目对接的前端开源仓库👉 [idocbot-web](https://github.com/fufankeji/idocbot-web) 
 
 ### 主要特点
 - **主流功能覆盖**：涵盖大模型通用知识问答、本地私有知识库问答、实时联网检索问答、AI Agents问答及大模型推荐系统。
@@ -164,8 +164,8 @@ FuFan-chat-api 的通用知识问答功能充分利用了大模型的原生对�
 
 1. 克隆仓库并安装依赖：
     ```bash
-    git clone https://github.com/fufankeji/fufan-chat-api.git
-    cd fufan-chat-api
+    git clone https://github.com/fufankeji/iDocBot-api.git
+    cd iDocBot-api
     pip install -r requirements.txt
     ```
 2. 本地部署Mysql服务并启动
@@ -173,11 +173,11 @@ FuFan-chat-api 的通用知识问答功能充分利用了大模型的原生对�
    
 3. 初始化关系型数据库表
     ```bash
-    python /fufan-chat-api/server/db/create_all_model.py
+    python /iDocBot-api/server/db/create_all_model.py
     ```
 4. 初始化Faiss向量数据库
     ```bash
-    python /fufan-chat-api/server/knowledge_base/init_vs.py
+    python /iDocBot-api/server/knowledge_base/init_vs.py
     ```
 5. 本地部署milvus向量数据库并启动（如需使用）
    - [**Ubuntu系统上安装Milvus**](/docs/02_Ubuntu系统安装部署Milvus向量数据库.md) 
@@ -214,7 +214,7 @@ http://192.168.110.131:8000/api/chat  # 替换为自己实际启动的服务 IP 
 
 
 ## 😎 技术交流
-**fufan_chat_api目前上线了v1.0版本，将持续迭代更新，感兴趣的小伙伴欢迎加入技术交流群。如有其他任何问题，<span style="color:red;">扫码添加小可爱(微信：littlelion_1215)，回复“RAG”详询哦👇</span>**
+**iDocBot目前上线了v1.0版本，将持续迭代更新，感兴趣的小伙伴欢迎加入技术交流群。如有其他任何问题，<span style="color:red;">扫码添加小可爱(微信：littlelion_1215)，回复“RAG”详询哦👇</span>**
 
 <div align="center">
 <img src="https://ml2022.oss-cn-hangzhou.aliyuncs.com/img/image-20240713010710534.png" alt="image-20240713010710534" width="200"/>

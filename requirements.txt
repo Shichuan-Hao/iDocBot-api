@@ -2,7 +2,7 @@
 executing==2.0.1
 asttokens==2.4.1
 six==1.16.0
-blinker>=1.6.2
+blinker==1.9.0
 fastapi==0.111.0
 
 # langchain依赖
@@ -25,6 +25,7 @@ charset-normalizer==3.1.0
 shortuuid==1.0.13
 fschat==0.2.35
 transformers==4.37.2
+huggingface_hub==0.25.2
 psutil==6.0.0
 accelerate==0.32.1
 sentencepiece==0.2.0
@@ -33,6 +34,7 @@ pydantic==1.10.13
 bs4==0.0.2
 httpx-sse==0.4.0
 pymysql==1.1.1
+pdfplumber==0.10.4
 unstructured[all-docs]==0.11.8
 sentence-transformers==2.2.2
 faiss-cpu==1.8.0
@@ -41,6 +43,7 @@ spacy==3.7.5
 PyPDF2==3.0.1
 llama_index==0.10.55
 datasets==2.20.0
+matplotlib==3.7.2
 html2text==2024.2.26
 strsimpy==0.2.1
 markdownify==0.13.1

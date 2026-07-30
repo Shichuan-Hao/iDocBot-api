@@ -1,6 +1,6 @@
 <div align="center">
-  <img alt="FuFan Chat Logo" width="120" height="120" src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/logo.png">
-  <h1>FuFan Chat Api</h1>
+  <img alt="iDocBot Logo" width="120" height="120" src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/logo.png">
+  <h1>iDocBot Api</h1>
   <span> English | <a href="README_zh.md">中文</a></span>
 </div>
 
@@ -8,14 +8,14 @@
 
 ## ⚡ Project Overview
 
-Fufan-chat-api is an intelligent Q&A system for local knowledge bases developed using large model technologies. This system implements five core scenarios of large model application deployment: general domain knowledge Q&A with large models, local private knowledge base Q&A, real-time internet search Q&A, AI Agents Q&A, and large model recommendation systems. Additionally, the system includes a complete RAG evaluation scheme and process, and supports Docker container deployment, offering highly flexible and efficient application deployment options.
+iDocBot is an intelligent Q&A system for local knowledge bases developed using large model technologies. This system implements five core scenarios of large model application deployment: general domain knowledge Q&A with large models, local private knowledge base Q&A, real-time internet search Q&A, AI Agents Q&A, and large model recommendation systems. Additionally, the system includes a complete RAG evaluation scheme and process, and supports Docker container deployment, offering highly flexible and efficient application deployment options.
 
   <div align="center">
   <img src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/fufan-logo.jpg" width="1200"/>
   </div>
 
 ### Technical Architecture
-This project is a secondary development based on the 👉[LangChain-chatchat v0.2](https://github.com/chatchat-space/Langchain-Chatchat) version, where the original architecture was optimized using a frontend-backend separation design. The backend is developed entirely in Python, while the frontend utilizes the modern Vue3 framework. The frontend repository that this project interfaces with is👉 [fufan-chat-web](https://github.com/fufankeji/fufan-chat-web) 
+This project is a secondary development based on the 👉[LangChain-chatchat v0.2](https://github.com/chatchat-space/Langchain-Chatchat) version, where the original architecture was optimized using a frontend-backend separation design. The backend is developed entirely in Python, while the frontend utilizes the modern Vue3 framework. The frontend repository that this project interfaces with is👉 [idocbot-web](https://github.com/fufankeji/idocbot-web) 
 
 ### Key Features
 - **Comprehensive Functionality**: Includes general domain knowledge Q&A with large models, local private knowledge base Q&A, real-time internet search Q&A, AI Agents Q&A, and large model recommendation systems.
@@ -166,8 +166,8 @@ Ensure the following software or services are installed and properly configured:
 
 1. Clone the repository and install dependencies:
     ```bash
-    git clone https://github.com/fufankeji/fufan-chat-api.git
-    cd fufan-chat-api
+    git clone https://github.com/fufankeji/iDocBot-api.git
+    cd iDocBot-api
     pip install -r requirements.txt
     ```
 2. Deploy and start the MySQL service locally:
@@ -175,11 +175,11 @@ Ensure the following software or services are installed and properly configured:
    
 3. Initialize the relational database tables:
     ```bash
-    python /fufan-chat-api/server/db/create_all_model.py
+    python /iDocBot-api/server/db/create_all_model.py
     ```
 4. Initialize the Faiss vector database:
     ```bash
-    python /fufan-chat-api/server/knowledge_base/init_vs.py
+    python /iDocBot-api/server/knowledge_base/init_vs.py
     ```
 5. Deploy and start the Milvus vector database locally (if required):
    - [**Installing Milvus on Ubuntu**](/docs/02_Ubuntu系统安装部署Milvus向量数据库.md) 
@@ -216,7 +216,7 @@ We welcome contributions to the project via GitHub pull requests or issues. Any 
 
 
 ## 😎 Technical Communication
-**fufan_chat_api has launched version 1.0 and will continue to iterate and update. If you're interested, you're welcome to join our technical discussion group. For any other questions, <span style="color:red;">scan to add Little Cute (WeChat: littlelion_1215) and reply with "RAG" for more details👇</span>**
+**iDocBot has launched version 1.0 and will continue to iterate and update. If you're interested, you're welcome to join our technical discussion group. For any other questions, <span style="color:red;">scan to add Little Cute (WeChat: littlelion_1215) and reply with "RAG" for more details👇</span>**
 
 <div align="center">
 <img src="https://ml2022.oss-cn-hangzhou.aliyuncs.com/img/image-20240713010710534.png" alt="image-20240713010710534" width="200"/>

@@ -14,3 +14,7 @@ iDocBot 项目的后端服务，负责处理业务逻辑、数据存储和API接
 
 
 pip install openai -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+pip install pdfminer.six==20231228 -i https://pypi.tuna.tsinghua.edu.cn/simple
+
