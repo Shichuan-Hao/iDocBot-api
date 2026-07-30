@@ -29,7 +29,7 @@ Video coming soon.............
 ## 💧 Feature Highlights
 
 ### 一、User Module
-FuFan-chat-api provides a comprehensive user registration and login mechanism, ensuring system security and a personalized experience for each user. The main features of this module include:
+iDocBot provides a comprehensive user registration and login mechanism, ensuring system security and a personalized experience for each user. The main features of this module include:
 
 1. **User Registration**: Allows new users to create accounts. Once registered, users can access the system through the front-end login interface.
 2. **User Validation**: Conducts preliminary user validation at the front-end. Illegitimate users are prevented from accessing the intelligent Q&A system, ensuring system security.
@@ -42,7 +42,7 @@ FuFan-chat-api provides a comprehensive user registration and login mechanism, e
 
 
 ### 二、Model Integration
-FuFan-chat-api is compatible with a variety of high-performance open-source large models and online large model APIs as base models. This system version primarily uses ChatGLM3-6b, glm-4-9b-chat, and the online GLM-4 API interface. It allows users to flexibly integrate other models according to their actual needs, supporting mainstream models such as OpenAI GPT, Qwen2, as well as integration frameworks like Vllm and Ollama.
+iDocBot is compatible with a variety of high-performance open-source large models and online large model APIs as base models. This system version primarily uses ChatGLM3-6b, glm-4-9b-chat, and the online GLM-4 API interface. It allows users to flexibly integrate other models according to their actual needs, supporting mainstream models such as OpenAI GPT, Qwen2, as well as integration frameworks like Vllm and Ollama.
 
 #### Underlying Technical Support:
 We have utilized the 👉 [FastChat](https://github.com/lm-sys/FastChat) open-source project framework to deploy models, optimizing support for the glm4-9b-chat model. Although the FastChat framework was initially not compatible with glm4-9b-chat, we have manually fixed issues including streaming output and self-ask self-answer loops. Now, the glm4-9b-chat model is fully functional and stable. For the specific architecture, see 👉 [FastChat Service Startup Logic](images/01_FastChat服务启动逻辑.png) and 👉 [FastChat Request Handling Logic](images/02_FastChat请求处理逻辑.png).
@@ -53,7 +53,7 @@ To facilitate users to extend or test new models, we provide detailed code examp
 ### 三、Core Q&A Functionality Description
 #### 3.1 General Knowledge Q&A
 
-The general knowledge Q&A feature of the FuFan-chat-api fully utilizes the native conversational capabilities of large models. This function is based directly on large models and is integrated with the LangChain application framework to create a unified large model conversation interface. It enhances the memory capabilities of large model sessions by reading historical dialogue records from the MySQL database for specified users and dialogue windows in real time. For the specific architecture, see 👉[General Domain Knowledge Q&A Logic Diagram.](images/03_通用领域知识问答逻辑.png)
+The general knowledge Q&A feature of the iDocBot fully utilizes the native conversational capabilities of large models. This function is based directly on large models and is integrated with the LangChain application framework to create a unified large model conversation interface. It enhances the memory capabilities of large model sessions by reading historical dialogue records from the MySQL database for specified users and dialogue windows in real time. For the specific architecture, see 👉[General Domain Knowledge Q&A Logic Diagram.](images/03_通用领域知识问答逻辑.png)
 
 ##### Feature Highlights:
 
