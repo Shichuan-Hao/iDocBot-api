@@ -9,9 +9,6 @@
 
 iDocBot is an intelligent Q&A system for local knowledge bases developed using large model technologies. This system implements five core scenarios of large model application deployment: general domain knowledge Q&A with large models, local private knowledge base Q&A, real-time internet search Q&A, AI Agents Q&A, and large model recommendation systems. Additionally, the system includes a complete RAG evaluation scheme and process, and supports Docker container deployment, offering highly flexible and efficient application deployment options.
 
-  <div align="center">
-  <img src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/fufan-logo.jpg" width="1200"/>
-  </div>
 
 ### Technical Architecture
 This project is a secondary development based on the 👉[LangChain-chatchat v0.2](https://github.com/chatchat-space/Langchain-Chatchat) version, where the original architecture was optimized using a frontend-backend separation design. The backend is developed entirely in Python, while the frontend utilizes the modern Vue3 framework. The frontend repository that this project interfaces with is👉 [idocbot-web](https://github.com/fufankeji/idocbot-web) 
