@@ -1,5 +1,4 @@
 <div align="center">
-  <img alt="iDocBot Logo" width="120" height="120" src="https://muyu001.oss-cn-beijing.aliyuncs.com/img/logo.png">
   <h1>iDocBot Api</h1>
   <span> English | <a href="README_zh.md">中文</a></span>
 </div>
@@ -166,7 +165,7 @@ Ensure the following software or services are installed and properly configured:
 
 1. Clone the repository and install dependencies:
     ```bash
-    git clone https://github.com/fufankeji/iDocBot-api.git
+    git clone git@github.com:Shichuan-Hao/iDocBot-api.git
     cd iDocBot-api
     pip install -r requirements.txt
     ```
@@ -213,15 +212,3 @@ http://192.168.110.131:8000/api/chat
 
 ## 🙈 Contributing
 We welcome contributions to the project via GitHub pull requests or issues. Any form of contribution is highly appreciated, including feature improvements, bug fixes, or documentation enhancements.化。
-
-
-## 😎 Technical Communication
-**iDocBot has launched version 1.0 and will continue to iterate and update. If you're interested, you're welcome to join our technical discussion group. For any other questions, <span style="color:red;">scan to add Little Cute (WeChat: littlelion_1215) and reply with "RAG" for more details👇</span>**
-
-<div align="center">
-<img src="https://ml2022.oss-cn-hangzhou.aliyuncs.com/img/image-20240713010710534.png" alt="image-20240713010710534" width="200"/>
-</div>
-
-#### [Course Details Page👉](https://whakv.xetslk.com/s/1lSCCD): This project provides detailed source code explanations. You can enter the course directory for more information.
-#### [BiliBili Public Lecture Video @Muyu Cheney👉](https://space.bilibili.com/3537113897241540?spm_id_from=333.337.0.0): Stay up-to-date with the latest developments and applications of large models.
-
